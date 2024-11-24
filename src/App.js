@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
 import './App.css';
 
 function App() {
+  const [tasks, setTasks] = useState([]);
+
+  const addTask = (taskType, intensity, failPercentage) => {
+    const newTask = {
+      id: tasks.length + 1,
+      type: taskType,
+      status: 'pending',
+      progress: 0,
+      intensity: intensity,
+      failPercentage: failPercentage,
+    };
+
+    setTasks([...tasks, newTask]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage addTask={addTask} />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,5 +1,5 @@
 // src/api/taskService.js
-const API_URL = 'http://localhost:3000/api'; // `https://${process.env.REACT_APP_ENVIRONMENT_NAME}.deveros.click/api`;
+const API_URL = `https://${process.env.REACT_APP_ENVIRONMENT_NAME}.deveros.click/api`;
 
 export async function fetchTasks() {
   const response = await fetch(

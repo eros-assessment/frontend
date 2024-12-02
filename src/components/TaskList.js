@@ -11,6 +11,12 @@ const TaskList = () => {
       setTasks(fetchedTasks);
     };
     loadTasks();
+
+    const intervalId = setInterval(() => {
+      loadTasks();
+    }, 10000);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   const handleDelete = async (taskId) => {

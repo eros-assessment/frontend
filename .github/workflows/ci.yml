@@ -94,8 +94,8 @@ jobs:
 
       - name: Build
         run: |
-          - echo "REACT_APP_ENVIRONMENT_NAME=${{ github.ref_name }}" > .env
-          - npm run build
+          echo "REACT_APP_ENVIRONMENT_NAME=${{ github.ref_name }}" > .env
+          npm run build
 
       - name: Get short SHA
         id: short-sha

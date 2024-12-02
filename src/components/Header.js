@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header className="app-header">
       <h1>Task Management App</h1>
-      <p>Create and track tasks</p>
+      <p>Create and Track tasks</p>
     </header>
   );
 };

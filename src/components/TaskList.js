@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchTasks, deleteAllTasks } from '../api/taskService';
-import { FaTrash, FaTrashAlt } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
 
 const TaskList = () => {
   const [tasks, setTasks] = useState([]);

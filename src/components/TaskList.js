@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchTasks, deleteTask, deleteAllTasks } from '../api/taskService';
+import { fetchTasks, deleteAllTasks } from '../api/taskService';
 import { FaTrash, FaTrashAlt } from 'react-icons/fa';
 
 const TaskList = () => {
@@ -19,11 +19,6 @@ const TaskList = () => {
     return () => clearInterval(intervalId);
   }, []);
 
-  const handleDelete = async (taskId) => {
-    await deleteTask(taskId);
-    setTasks(tasks.filter(task => task.id !== taskId));
-  };
-
   const handleDeleteAll = async () => {
     await deleteAllTasks();
     setTasks([]);
@@ -42,13 +37,9 @@ const TaskList = () => {
             </div>
             <div className="task-card-body">
               <p><strong>Status:</strong> {task.status}</p>
-              <p><strong>Attempts:</strong> {task.attempts}</p>
               <p><strong>Task Type:</strong> {task.type}</p>
               <p><strong>Fail Percentage:</strong> {task.failPercentage}%</p>
               <p><strong>Resource Intensive:</strong> {task.resourceIntensive}</p>
-              <button className="delete-button" onClick={() => handleDelete(task.id)}>
-                <FaTrashAlt className="delete-icon" /> Delete
-              </button>
             </div>
           </div>
         ))}

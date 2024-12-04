@@ -18,10 +18,6 @@ export async function createTask(task) {
   return response.json();
 }
 
-export async function deleteTask(taskId) {
-  await fetch(`${API_URL}/${taskId}`, { method: 'DELETE' });
-}
-
 export async function deleteAllTasks() {
-  await fetch(`${API_URL}/all`, { method: 'DELETE' });
+  await fetch(`${API_URL}/tasks/all`, { method: 'DELETE' });
 }

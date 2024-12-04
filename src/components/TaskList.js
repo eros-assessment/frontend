@@ -14,7 +14,7 @@ const TaskList = () => {
 
     const intervalId = setInterval(() => {
       loadTasks();
-    }, 10000);
+    }, 30000);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -29,6 +29,7 @@ const TaskList = () => {
       <button className="delete-all-button" onClick={handleDeleteAll}>
           <FaTrash className="delete-all-icon" /> Delete All Tasks
         </button>
+      <div>Total tasks: {tasks.length}</div>
       <div className="task-cards">
         {tasks.map((task) => (
           <div key={task.id} className={`task-card ${task.status}`}>
